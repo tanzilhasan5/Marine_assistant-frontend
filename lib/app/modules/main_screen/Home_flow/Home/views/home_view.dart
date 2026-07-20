@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:marine_assistant/app/routes/app_pages.dart';
 
 import '../../../../utils/colors.dart';
 import '../../../../utils/images.dart';
@@ -47,9 +48,18 @@ class HomeView extends GetView<HomeController> {
                   ),
                   Row(
                     children: [
-                      _IconCircleButton(icon: Icons.notifications_none_rounded),
+                      InkWell(
+                        onTap: (){
+                          Get.toNamed(Routes.NOTIFICATION);
+                        },
+                          child: _IconCircleButton(icon: Icons.notifications_none_rounded)),
                       SizedBox(width: 10.w),
-                      _IconCircleButton(icon: Icons.person_outline_rounded),
+                      InkWell(
+                        onTap: (){
+                          Get.toNamed(Routes.PROFILE);
+
+                        },
+                          child: _IconCircleButton(icon: Icons.person_outline_rounded)),
                     ],
                   ),
                 ],

@@ -73,11 +73,7 @@ class FluelPlanerView extends GetView<FluelPlanerController> {
                     child: CustomSetupTextField(
                       controller: controller.boatTypeController,
                       label: 'Boat Type',
-                      suffixIcon: Icon(
-                        Icons.keyboard_arrow_down_rounded,
-                        color: AppColor.secondarytextColor,
-                        size: 24.sp,
-                      ),
+
                     ),
                   ),
                   SizedBox(width: 12.w),
@@ -96,11 +92,7 @@ class FluelPlanerView extends GetView<FluelPlanerController> {
               CustomSetupTextField(
                 controller: controller.engineConfigController,
                 label: 'Engine configuration',
-                suffixIcon: Icon(
-                  Icons.keyboard_arrow_down_rounded,
-                  color: AppColor.secondarytextColor,
-                  size: 24.sp,
-                ),
+
               ),
               SizedBox(height: 12.h),
 

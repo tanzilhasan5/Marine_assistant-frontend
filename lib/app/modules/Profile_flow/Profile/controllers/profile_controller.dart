@@ -1,24 +1,69 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../../../routes/app_pages.dart';
 
 class ProfileController extends GetxController {
-  final userName = 'Captain Alex'.obs;
-  final vesselName = 'Salt Runner'.obs;
+  final userName = 'Alex Johnson'.obs;
   final userEmail = 'alex.johnson@gmail.com'.obs;
+
+  final vesselName = 'Salt Runner'.obs;
+  final vesselLength = '24 ft'.obs;
+  final enginePort = 'Single • 250hp'.obs;
+  final homePort = 'St. Petersburg, FL'.obs;
+
+  final emailNotificationEnabled = true.obs;
+  final profileImagePath = RxnString();
+
+  Future<void> pickProfileImage() async {
+    try {
+      final ImagePicker picker = ImagePicker();
+      final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+      if (image != null) {
+        profileImagePath.value = image.path;
+      }
+    } catch (e) {
+      Get.snackbar(
+        'Error',
+        'Could not pick image',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: const Color(0xFF132A3E),
+        colorText: Colors.white,
+      );
+    }
+  }
+
+  void toggleEmailNotification(bool value) {
+    emailNotificationEnabled.value = value;
+  }
 
   void onVesselSetup() => Get.toNamed(Routes.VESSEL_SETUP);
   void onChangeLanguage() => Get.toNamed(Routes.CHANGE_LANGUAGE);
-  void onSubscriptionPackage() => Get.toNamed(Routes.SUBSCRIPTION_PACKAGE);
+  void onSubscriptionPlan() => Get.toNamed(Routes.SUBSCRIPTION_PACKAGE);
   void onFaq() => Get.toNamed(Routes.FAQ);
   void onContactSupport() => Get.toNamed(Routes.CONTACT_SUPPORT);
+
+  void onAboutNautiGo() {
+    Get.to(() => const _AboutNautiGoScreen());
+  }
 
   void onPrivacyPolicy() {
     Get.to(() => const _PrivacyPolicyScreen());
   }
 
-  void onTermsAndPolicy() {
-    Get.to(() => const _TermsAndPolicyScreen());
+  void onTermsAndService() {
+    Get.to(() => const _TermsAndServiceScreen());
+  }
+
+  void onRateNautiGo() {
+    Get.snackbar(
+      'Rate NautiGo',
+      'Thank you for rating NautiGo!',
+      snackPosition: SnackPosition.BOTTOM,
+      backgroundColor: const Color(0xFF132A3E),
+      colorText: Colors.white,
+    );
   }
 
   void onLogout() {
@@ -27,6 +72,67 @@ class ProfileController extends GetxController {
 
   void onDeleteAccount() {
     Get.dialog(const _DeleteAccountDialog());
+  }
+}
+
+// ─── About NautiGO Screen ────────────────────────────────────────────────────
+class _AboutNautiGoScreen extends StatelessWidget {
+  const _AboutNautiGoScreen();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFF021B2D),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Get.back(),
+        ),
+        title: const Text(
+          'About NautiGO',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+        ),
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: const Color(0xFF132A3E),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: const Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(Icons.anchor_rounded, color: Color(0xFF0AD5EC), size: 36),
+                SizedBox(height: 14),
+                Text(
+                  'About NautiGO',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'NautiGO AI is a next-generation marine navigation platform designed to help boaters navigate safer, smarter, and more efficiently on the water. Combining intelligent route planning, real-time hazard alerts, vessel-specific insights, fuel optimization, and community-powered reporting, NautiGO transforms traditional marine navigation into a connected and data-driven experience.\n\nWhether for recreational boating or professional marine operations, the platform provides reliable guidance through interactive nautical maps, AI-assisted recommendations, and live safety updates. Inspired by the concept of a "Waze of the Sea," NautiGO empowers boaters with the information they need to make confident decisions, avoid risks, and enjoy every journey with greater awareness and control.',
+                  style: TextStyle(
+                    color: Color(0xFFBAC9CC),
+                    fontSize: 14,
+                    height: 1.4,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 
@@ -91,9 +197,9 @@ class _PrivacyPolicyScreen extends StatelessWidget {
   }
 }
 
-// ─── Terms & Policy Screen ───────────────────────────────────────────────────
-class _TermsAndPolicyScreen extends StatelessWidget {
-  const _TermsAndPolicyScreen();
+// ─── Terms & Service Screen ──────────────────────────────────────────────────
+class _TermsAndServiceScreen extends StatelessWidget {
+  const _TermsAndServiceScreen();
 
   @override
   Widget build(BuildContext context) {
