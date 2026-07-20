@@ -1,23 +1,33 @@
 import 'package:get/get.dart';
+import '../../../../../routes/app_pages.dart';
 
 class CummunityController extends GetxController {
-  //TODO: Implement CummunityController
+  final selectedTab = 'Useful Places'.obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  final activeNearby = 12.obs;
+  final hazardsToday = 4.obs;
+  final confirmations = 37.obs;
+
+  final tabs = <String>[
+    'Nearby',
+    'Hazards',
+    'Useful Places',
+    'My Reports',
+  ];
+
+  void selectTab(String tab) {
+    selectedTab.value = tab;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void onAddReport() {
+    Get.toNamed(Routes.REPORT);
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  void onAddUsefulPlaces() {
+    Get.toNamed(Routes.ADD_USEFUL_PLACES);
   }
 
-  void increment() => count.value++;
+  void onNavigate() {
+    Get.toNamed(Routes.SUGGESTED_ROUTE);
+  }
 }

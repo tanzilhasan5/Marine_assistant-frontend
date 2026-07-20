@@ -1,6 +1,13 @@
 import 'package:get/get.dart';
+import '../../../../../routes/app_pages.dart';
 
 class HomeController extends GetxController {
+  // Toggle for active route vs empty state
+  final hasActiveRoute = true.obs;
+
+  // Toggle for alerts visibility
+  final isAlertsVisible = true.obs;
+
   // Location
   final locationLabel = 'CURRENT POSITION'.obs;
   final locationName = 'Tampa Bay Channel'.obs;
@@ -31,10 +38,18 @@ class HomeController extends GetxController {
   double get fuelPercent => fuelCurrent.value / fuelTotal.value;
 
   void onReport() {
-    // TODO: Navigate to report screen
+    Get.toNamed(Routes.REPORT);
   }
 
   void onStartNavigation() {
-    // TODO: Navigate to navigation/route screen
+    Get.toNamed(Routes.SUGGESTED_ROUTE);
+  }
+
+  void planRoute() {
+    Get.toNamed(Routes.PLAN_A_ROUTE);
+  }
+
+  void toggleAlertsVisibility() {
+    isAlertsVisible.value = !isAlertsVisible.value;
   }
 }

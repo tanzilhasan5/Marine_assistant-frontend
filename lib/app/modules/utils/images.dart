@@ -23,7 +23,7 @@ class Images {
   static const String location = 'assets/logo/location.png';
 
   // Vessel Setup
-  static const String vesselIllustration = 'assets/logo/VESSEL.png';
+  static const String vessel = 'assets/logo/VESSEL.png';
   static const String sailboat = 'assets/logo/Sailboat.png';
   static const String motorboat = 'assets/logo/Motorboat.png';
   static const String yacht = 'assets/logo/Yacht.png';

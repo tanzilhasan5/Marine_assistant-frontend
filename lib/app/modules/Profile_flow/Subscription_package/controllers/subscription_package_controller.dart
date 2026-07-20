@@ -1,23 +1,13 @@
 import 'package:get/get.dart';
 
 class SubscriptionPackageController extends GetxController {
-  //TODO: Implement SubscriptionPackageController
+  final selectedPlan = 'Weekly'.obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void selectPlan(String plan) {
+    selectedPlan.value = plan;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void onUnlockAccess() {
+    Get.back();
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

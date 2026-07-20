@@ -14,7 +14,6 @@ class MainNavberView extends GetView<MainNavberController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.primary,
-      // This Obx is fine as-is -> it only swaps the page, not the nav bar.
       body: Obx(() => controller.pages[controller.currentIndex.value]),
 
       bottomNavigationBar: Container(
@@ -42,15 +41,16 @@ class MainNavberView extends GetView<MainNavberController> {
                     index: 0,
                     controller: controller,
                   ),
+
                   _NavItem(
-                    imagePath: Images.route,
-                    label: 'Route',
+                    imagePath: Images.fuelPlanner,
+                    label: 'Fuel Planer',
                     index: 1,
                     controller: controller,
                   ),
                   _NavItem(
-                    imagePath: Images.fuelPlanner,
-                    label: 'Fuel',
+                    imagePath: Images.report,
+                    label: 'Report',
                     index: 2,
                     controller: controller,
                   ),
@@ -58,12 +58,6 @@ class MainNavberView extends GetView<MainNavberController> {
                     imagePath: Images.community,
                     label: 'Community',
                     index: 3,
-                    controller: controller,
-                  ),
-                  _NavItem(
-                    imagePath: Images.person,
-                    label: 'Profile',
-                    index: 4,
                     controller: controller,
                   ),
                 ],
@@ -117,11 +111,11 @@ class _NavItem extends StatelessWidget {
                   child: Center(
                     child: Image.asset(
                       imagePath,
-                      width: isSelected ? 28.w : 20.w,
-                      height: isSelected ? 28.h : 20.h,
+                      width: isSelected ? 28.w : 25.w,
+                      height: isSelected ? 28.h : 25.h,
                       color: isSelected
                           ? Colors.white
-                          : AppColor.secondarytextColor,
+                          : AppColor.textColor,
                     ),
                   ),
                 ),
@@ -130,8 +124,10 @@ class _NavItem extends StatelessWidget {
               Positioned(
                 bottom: 8.h,
                 child: Text(
-                  label,
-                  style: AppTextStyles.title10_w500(
+                  isSelected ? label
+                      : '',
+
+                  style: AppTextStyles.title14_w500(
                     color: isSelected
                         ? Colors.white
                         : AppColor.secondarytextColor,

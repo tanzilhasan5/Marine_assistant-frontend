@@ -9,7 +9,7 @@ class AppColor {
   static const Color green500 = Color(0xFF00D8B1);
 
   // Centralized theme setup colors
-  static const Color cardBackground = Color(0xFF132A3E);
+  static const Color cardBackground = Color(0x1FE9F2FB);
   static const Color cyanHighlight = Color(0xFF0AD5EC);
   static const Color blueHighlight = Color(0xFF1B85FF);
 

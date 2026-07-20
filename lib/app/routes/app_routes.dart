@@ -32,6 +32,7 @@ abstract class Routes {
   static const FAQ = _Paths.FAQ;
   static const CONTACT_SUPPORT = _Paths.CONTACT_SUPPORT;
   static const SUBSCRIPTION_PACKAGE = _Paths.SUBSCRIPTION_PACKAGE;
+  static const NOTIFICATION = _Paths.NOTIFICATION;
 }
 
 abstract class _Paths {
@@ -65,4 +66,5 @@ abstract class _Paths {
   static const FAQ = '/faq';
   static const CONTACT_SUPPORT = '/contact-support';
   static const SUBSCRIPTION_PACKAGE = '/subscription-package';
+  static const NOTIFICATION = '/notification';
 }

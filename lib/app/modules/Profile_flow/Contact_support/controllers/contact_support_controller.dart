@@ -1,23 +1,21 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ContactSupportController extends GetxController {
-  //TODO: Implement ContactSupportController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  final messageController = TextEditingController();
+  final attachedFileName = ''.obs;
 
   @override
   void onClose() {
+    messageController.dispose();
     super.onClose();
   }
 
-  void increment() => count.value++;
+  void onUploadFile() {
+    attachedFileName.value = 'screenshot_log.png';
+  }
+
+  void onSubmitNow() {
+    Get.back();
+  }
 }

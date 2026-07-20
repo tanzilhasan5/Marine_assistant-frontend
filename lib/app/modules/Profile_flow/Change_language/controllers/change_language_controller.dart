@@ -1,23 +1,15 @@
 import 'package:get/get.dart';
 
 class ChangeLanguageController extends GetxController {
-  //TODO: Implement ChangeLanguageController
+  final selectedLanguage = 'English'.obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  final languages = <String>[
+    'English',
+    'Hindi',
+    'Spanish',
+  ];
+
+  void selectLanguage(String lang) {
+    selectedLanguage.value = lang;
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

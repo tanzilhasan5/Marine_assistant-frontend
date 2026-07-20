@@ -52,6 +52,8 @@ import '../modules/main_screen/Report_flow/Report/bindings/report_binding.dart';
 import '../modules/main_screen/Report_flow/Report/views/report_view.dart';
 import '../modules/main_screen/Report_flow/Submite_Locaiton/bindings/submite_locaiton_binding.dart';
 import '../modules/main_screen/Report_flow/Submite_Locaiton/views/submite_locaiton_view.dart';
+import '../modules/main_screen/Home_flow/Notification/bindings/notification_binding.dart';
+import '../modules/main_screen/Home_flow/Notification/views/notification_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
 
@@ -204,6 +206,11 @@ class AppPages {
       name: _Paths.SUBSCRIPTION_PACKAGE,
       page: () => const SubscriptionPackageView(),
       binding: SubscriptionPackageBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION,
+      page: () => const NotificationView(),
+      binding: NotificationBinding(),
     ),
   ];
 }

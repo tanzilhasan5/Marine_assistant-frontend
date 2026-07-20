@@ -1,23 +1,11 @@
 import 'package:get/get.dart';
+import '../../../../../routes/app_pages.dart';
 
 class SubmiteLocaitonController extends GetxController {
-  //TODO: Implement SubmiteLocaitonController
+  final locationName = 'Egmont Key Marina'.obs;
+  final severity = 'High'.obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void onCloseReport() {
+    Get.offAllNamed(Routes.MAIN_NAVBER);
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

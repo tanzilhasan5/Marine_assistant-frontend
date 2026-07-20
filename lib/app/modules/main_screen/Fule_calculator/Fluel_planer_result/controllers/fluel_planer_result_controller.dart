@@ -1,23 +1,10 @@
 import 'package:get/get.dart';
 
 class FluelPlanerResultController extends GetxController {
-  //TODO: Implement FluelPlanerResultController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
+  final destinationName = 'Egmont Key Marina'.obs;
+  final safeMarginPercent = 68.obs;
+  final statusTitle = 'Safe to Depart'.obs;
+  final estimatedFuelRequired = '14.3 L'.obs;
+  final estimatedRange = '61 nm'.obs;
+  final remainingSafetyMargin = '48.6 nm'.obs;
 }

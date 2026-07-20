@@ -25,7 +25,7 @@ class VesselSetupView extends GetView<VesselSetupController> {
               // Top Boat Illustration
               Center(
                 child: Image.asset(
-                  Images.vesselIllustration,
+                  Images.vessel,
                   height: 100.h,
                   fit: BoxFit.contain,
                 ),
