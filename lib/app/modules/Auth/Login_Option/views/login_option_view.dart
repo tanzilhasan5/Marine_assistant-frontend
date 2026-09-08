@@ -21,9 +21,7 @@ class LoginOptionView extends GetView<LoginOptionController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Top Right Step Indicators
 
-              // Logo & App Name / Description
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

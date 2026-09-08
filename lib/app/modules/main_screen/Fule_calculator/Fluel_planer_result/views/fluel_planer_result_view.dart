@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:marine_assistant/app/routes/app_pages.dart';
 
 import '../../../../utils/colors.dart';
 import '../../../../utils/styles.dart';
@@ -18,8 +19,8 @@ class FluelPlanerResultView extends GetView<FluelPlanerResultController> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Get.back(),
+          icon: const Icon(Icons.home, color: Colors.white),
+          onPressed: () => Get.offAllNamed(Routes.MAIN_NAVBER),
         ),
         title: Text(
           'Fuel Planer',
@@ -121,6 +122,8 @@ class FluelPlanerResultView extends GetView<FluelPlanerResultController> {
                   ],
                 ),
               ),
+              
+              
               SizedBox(height: 24.h),
             ],
           ),
@@ -130,7 +133,7 @@ class FluelPlanerResultView extends GetView<FluelPlanerResultController> {
   }
 }
 
-// ─── Result Metric Row Widget ───────────────────────────────────────────────
+/// ─── Result Metric Row Widget ───────
 class _ResultMetricRow extends StatelessWidget {
   final String label;
   final String value;
