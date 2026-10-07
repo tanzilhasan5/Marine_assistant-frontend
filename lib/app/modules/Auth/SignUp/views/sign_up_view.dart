@@ -56,22 +56,33 @@ class SignUpView extends GetView<SignUpController> {
                 prefixIcon: const Icon(Icons.mail_outline),
               ),
               SizedBox(height: 48.h),
-              Container(
-                width: double.infinity,
-                height: 60.h,
-                decoration: BoxDecoration(
-                  gradient: AppColor.brandLinearGradient,
-                  borderRadius: BorderRadius.circular(30.r),
-                ),
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
+              Obx(
+                () => Container(
+                  width: double.infinity,
+                  height: 60.h,
+                  decoration: BoxDecoration(
+                    gradient: AppColor.brandLinearGradient,
                     borderRadius: BorderRadius.circular(30.r),
-                    onTap: controller.signUp,
-                    child: Center(
-                      child: Text(
-                        'Continue',
-                        style: AppTextStyles.title16_w700(color: Colors.white),
+                  ),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(30.r),
+                      onTap: controller.isLoading.value ? null : controller.register,
+                      child: Center(
+                        child: controller.isLoading.value
+                            ? const SizedBox(
+                                height: 24,
+                                width: 24,
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                  strokeWidth: 2.5,
+                                ),
+                              )
+                            : Text(
+                                'Continue',
+                                style: AppTextStyles.title16_w700(color: Colors.white),
+                              ),
                       ),
                     ),
                   ),

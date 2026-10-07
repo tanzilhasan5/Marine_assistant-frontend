@@ -133,7 +133,7 @@ class FluelPlanerResultView extends GetView<FluelPlanerResultController> {
   }
 }
 
-/// ─── Result Metric Row Widget ───────
+///─── Result Metric Row Widget ───────
 class _ResultMetricRow extends StatelessWidget {
   final String label;
   final String value;

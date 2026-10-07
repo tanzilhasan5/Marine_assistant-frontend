@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:marine_assistant/app/modules/utils/custom_buttons/custom_elevated.dart';
 import 'package:marine_assistant/app/routes/app_pages.dart';
 
 import '../../../utils/CustomTextFields/custom_TextFields.dart';
@@ -52,34 +53,27 @@ class LoginView extends GetView<LoginController> {
                 prefixIcon: const Icon(Icons.mail_outline),
               ),
               SizedBox(height: 48.h),
-              Container(
-                width: double.infinity,
-                height: 60.h,
-                decoration: BoxDecoration(
+
+              Obx(
+                    () => CustomButton(
+                  text: 'Continue',
+                  isLoading: controller.isLoading.value,
                   gradient: AppColor.brandLinearGradient,
-                  borderRadius: BorderRadius.circular(30.r),
-                ),
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(30.r),
-                    onTap: controller.login,
-                    child: Center(
-                      child: Text(
-                        'Continue',
-                        style: AppTextStyles.title16_w700(color: Colors.white),
-                      ),
-                    ),
-                  ),
+                  onPressed: () {
+                    controller.login(
+                      controller.emailController.text.trim(),
+                    );
+                  },
                 ),
               ),
+
               SizedBox(height: 350.h),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don't have an account?",
+                    "Don't have an account?  ",
                     style: AppTextStyles.title14_w500(
                       color: AppColor.secondarytextColor,
                     ),
@@ -90,7 +84,7 @@ class LoginView extends GetView<LoginController> {
                     },
                     child: Text(
                       'Sign up',
-                      style: AppTextStyles.title25_w500(
+                      style: AppTextStyles.title18_w400(
                         color: AppColor.textColor,
                       ),
                     ),
