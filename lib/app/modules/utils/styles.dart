@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyles{
-  static TextStyle title25_w500({Color? color}) => GoogleFonts.poppins(fontSize: 14.sp, fontWeight: FontWeight.w500, color: color);
+  static TextStyle title25_w500({Color? color}) => GoogleFonts.poppins(fontSize: 25.sp, fontWeight: FontWeight.w500, color: color);
   static TextStyle title26_600({Color? color}) => GoogleFonts.poppins(fontSize: 26.sp, fontWeight: FontWeight.w600, color: color,);
   static TextStyle title27_600({Color? color}) => GoogleFonts.poppins(fontSize: 27.sp, fontWeight: FontWeight.w600, color: color,);
   static TextStyle title28_600({Color? color}) => GoogleFonts.poppins(fontSize: 28.sp, fontWeight: FontWeight.w600, color: color,);
